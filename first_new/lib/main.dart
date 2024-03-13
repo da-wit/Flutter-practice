@@ -3,8 +3,16 @@ import './gradiant_container.dart';
 
 void main() {
   runApp(
-    const MaterialApp(
-      home: Scaffold(body: GradaintContainer()),
+    MaterialApp(
+      home: Scaffold(
+        body:
+            //const GradaintContainer(
+            //     Color.fromARGB(95, 245, 246, 250), Color.fromARGB(95, 255, 4, 4)),
+            GradaintContainer.purple(),
+        appBar: AppBar(
+          title: const Text("hello world"),
+        ),
+      ),
     ),
   );
 }
