@@ -8,12 +8,15 @@ class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   // This widget is the root of your application.
+
   @override
   Widget build(BuildContext context) {
+    const String appTitle = "Layout";
     return MaterialApp(
+      title: appTitle,
       home: Scaffold(
         appBar: AppBar(
-          title: const Text("layout"),
+          title: const Text(appTitle),
         ),
         body: const SingleChildScrollView(
           child: Column(
