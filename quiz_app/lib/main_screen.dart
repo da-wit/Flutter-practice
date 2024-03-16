@@ -55,7 +55,7 @@ class _MainScreenState extends State<MainScreen> {
 
   void restart() {
     setState(() {
-      activeScreen = 'home';
+      switchScreen();
       selectedAnswers = [];
     });
   }
