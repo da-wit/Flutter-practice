@@ -33,6 +33,7 @@ class Chart extends StatelessWidget {
   Widget build(BuildContext context) {
     final isDarkMode =
         MediaQuery.of(context).platformBrightness == Brightness.dark;
+
     return Container(
       margin: const EdgeInsets.all(16),
       padding: const EdgeInsets.symmetric(
@@ -79,8 +80,8 @@ class Chart extends StatelessWidget {
                             ? Theme.of(context).colorScheme.secondary
                             : Theme.of(context)
                                 .colorScheme
-                                .primary
-                                .withOpacity(0.7),
+                                .onPrimary
+                                .withOpacity(1),
                       ),
                     ),
                   ),
