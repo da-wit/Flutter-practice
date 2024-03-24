@@ -6,14 +6,24 @@ import 'package:meal/screens/meal_detail.dart';
 import 'package:meal/widgets/meal_item.dart';
 
 class MealsScreen extends StatelessWidget {
-  const MealsScreen({required this.title, required this.meals, super.key});
+  const MealsScreen(
+      {required this.message,
+      required this.toggleFav,
+      this.title,
+      required this.meals,
+      super.key});
 
-  final String title;
+  final String? title;
   final List<Meal> meals;
+  final void Function(Meal mal) toggleFav;
+  final String message;
 
   void selectedMeal(BuildContext context, Meal meal) {
-    Navigator.push(context,
-        MaterialPageRoute(builder: (ctx) => MealDetailScreen(meal: meal)));
+    Navigator.push(
+        context,
+        MaterialPageRoute(
+            builder: (ctx) =>
+                MealDetailScreen(toggleFav: toggleFav, meal: meal)));
   }
 
   @override
@@ -33,7 +43,7 @@ class MealsScreen extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             Text(
-              "Uh oh ... nothing here!",
+              message,
               style: Theme.of(context).textTheme.headlineLarge!.copyWith(
                     color: Theme.of(context).colorScheme.onBackground,
                   ),
@@ -52,11 +62,15 @@ class MealsScreen extends StatelessWidget {
       );
     }
 
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(title),
-      ),
-      body: content,
-    );
+    if (title == null) {
+      return content;
+    } else {
+      return Scaffold(
+        appBar: AppBar(
+          title: Text(title!),
+        ),
+        body: content,
+      );
+    }
   }
 }
